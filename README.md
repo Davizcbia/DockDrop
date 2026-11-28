@@ -4,31 +4,45 @@
 
 ## 简体中文
 
-DockDrop 是 DockOver 的文件和文字互传工具。Windows 端显示配对光泡和备用二维码，手机使用浏览器连接。完成首次配对后，可以记住设备并在之后重新连接。Windows 仍会在接收前显示确认。
+DockDrop 在 Windows 电脑和手机之间互传文件和文字。手机端只需要浏览器，不用安装 App。首次用手机扫描电脑上的水球或备用二维码完成配对；之后在 DockDrop 窗口里点已配对的手机，手机打开扫码页就会自动连上。电脑接收前总会先询问。
 
-## Windows 11 x64
+- **双向互传**：手机发给电脑，或从电脑接收文件和文字。
+- **已配对手机**：窗口里列出附近的电脑和已配对的手机，点一下即可连接，最多记住 6 台手机。
+- **电脑之间互传**：同一局域网里的电脑也能互相发送。
+- **直连传输**：文件经 WebRTC 在两台设备之间加密直传，配对服务只负责让两边找到对方。
+- **资源管理器入口**：在文件上右键即可发给已配对的手机。
 
-1. 下载并解压 `DockDrop-Windows-Portable-0.1.0.zip`，运行 `DockDrop.exe`。
-2. 用手机浏览器扫描光泡或备用二维码，在手机上选择发送或接收。
-3. 在 Windows 设置窗口中调整接收目录、管理已配对手机和资源管理器入口。
+![DockDrop 配对与传输流程](screenshots/flow-zh.jpg)
 
-电脑需要 Microsoft Edge WebView2 Runtime。简体和繁体中文由 Windows 或 DockOver 的语言设置启用。
+### 开始使用（Windows 11 x64）
 
-[下载 0.1.0](https://github.com/Davizcbia/DockDrop/releases/tag/0.1.0) · [手机扫码页](https://davizcbia.github.io/dockdrop-scan/bubble/) · [共享源码](https://github.com/Davizcbia/DockOver/tree/1.1.0/dockui/src/pairing)
+1. 从 [Releases](https://github.com/Davizcbia/DockDrop/releases/latest) 下载 `DockDrop-Windows-Portable-<版本>.zip`，解压后运行 `DockDrop.exe`。
+2. 点「配对手机」，用手机浏览器打开[扫码页](https://davizcbia.github.io/dockdrop-scan/bubble/)，扫描水球或备用二维码。
+3. 在手机上选择文件或输入文字，然后选「发送到电脑」或「从电脑接收」。
+4. 在 DockDrop 设置里调整接收文件夹、管理已配对的手机和资源管理器入口。
 
-Release 另含 PC 局域网互传和临时 Wi-Fi 浏览器收发预览，实体设备兼容性仍在验证中。
+手机配对需要 Microsoft Edge WebView2 Runtime（Windows 11 已自带）；电脑之间互传需要 .NET Desktop Runtime 9 或 10。界面语言跟随 Windows 或 DockOver 的语言设置。已安装 [DockOver](https://github.com/Davizcbia/DockOver) 套件时，独立版会改用套件内置的 DockDrop。
 
 ## English
 
-DockDrop transfers files and text between Windows and a phone. Scan the pairing bubble or backup QR code in your phone browser. You can remember the phone after the first pairing and reconnect later. Windows asks before accepting an incoming transfer.
+DockDrop transfers files and text between a Windows PC and a phone. The phone only needs a browser, with no app to install. Pair once by scanning the water ball or the backup QR code on the PC. Later, click the paired phone in the DockDrop window and open the scanner on the phone. It connects by itself. The PC always asks before it receives anything.
 
-1. Extract the Windows 11 x64 package and run `DockDrop.exe`. Microsoft Edge WebView2 Runtime is required.
-2. Open the scanner on your phone and scan the bubble or QR code. Choose Send or Receive.
-3. Open DockDrop Settings to choose the destination folder, manage remembered phones, or add the File Explorer menu entry.
+- **Both directions**: send files and text from the phone to the PC, or receive them from the PC.
+- **Paired phones**: the window lists nearby PCs and paired phones. Click one to connect. Up to 6 phones are remembered.
+- **PC to PC**: PCs on the same network can send to each other.
+- **Direct transfer**: files travel encrypted and directly between the two devices over WebRTC. The pairing service only introduces them.
+- **File Explorer**: right-click a file to send it to a paired phone.
 
-The release also includes PC LAN transfer and temporary Wi-Fi browser transfer previews. Physical-device compatibility is still being tested.
+![DockDrop pairing and transfer steps](screenshots/flow-en.jpg)
 
-[Download 0.1.0](https://github.com/Davizcbia/DockDrop/releases/tag/0.1.0) · [Phone scanner](https://davizcbia.github.io/dockdrop-scan/bubble/) · [Shared source](https://github.com/Davizcbia/DockOver/tree/1.1.0/dockui/src/pairing)
+### Get started (Windows 11 x64)
+
+1. Download `DockDrop-Windows-Portable-<version>.zip` from [Releases](https://github.com/Davizcbia/DockDrop/releases/latest), extract it, and run `DockDrop.exe`.
+2. Click **Pair phone**, open the [scanner](https://davizcbia.github.io/dockdrop-scan/bubble/) in your phone browser, and scan the water ball or the backup QR code.
+3. On the phone, choose files or type text, then tap **Send to PC** or **Receive from PC**.
+4. In DockDrop Settings, choose the receive folder and manage paired phones and the File Explorer entry.
+
+Phone pairing needs the Microsoft Edge WebView2 Runtime, which Windows 11 includes. PC-to-PC transfer needs .NET Desktop Runtime 9 or 10. The interface follows the Windows or DockOver language setting. When the [DockOver](https://github.com/Davizcbia/DockOver) suite is installed, the standalone app hands over to the DockDrop built into the suite.
 
 ## 功能截图 / Screenshots
 
@@ -36,6 +50,8 @@ The release also includes PC LAN transfer and temporary Wi-Fi browser transfer p
 | --- | --- |
 | ![光泡配对 / Pairing bubble](screenshots/pairing.jpg) | ![手机文字收发 / Phone text transfer](screenshots/phone-text-transfer.jpg) |
 | **PC 收件请求 / PC receive request** | **实际接收进度 / Transfer progress** |
-| ![收件确认](screenshots/receive-request.jpg) | ![接收进度](screenshots/receiving.jpg) |
+| ![收件确认 / Receive request](screenshots/receive-request.jpg) | ![接收进度 / Transfer progress](screenshots/receiving.jpg) |
 | **接收完成 / Transfer complete** | **DockOver 桌面暂存 / Desktop staging** |
-| ![接收完成 / Transfer complete](screenshots/receive-complete.jpg) | ![暂存小组件](screenshots/desktop-staging-widget.jpg) |
+| ![接收完成 / Transfer complete](screenshots/receive-complete.jpg) | ![暂存小组件 / Staging widget](screenshots/desktop-staging-widget.jpg) |
+
+[源码 / Source](https://github.com/Davizcbia/DockOver/tree/1.4.1/dockui/src/pairing) · [手机扫码页 / Phone scanner](https://davizcbia.github.io/dockdrop-scan/bubble/)
